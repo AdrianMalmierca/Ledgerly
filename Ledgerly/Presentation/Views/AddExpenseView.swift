@@ -10,6 +10,7 @@ import Lottie
 
 struct AddExpenseView: View {
     
+    //This view is a sheet so we need to close it after saving the expense. Thats why we need the dismiss environment variable
     @Environment(\.dismiss) var dismiss
     
     @State private var title = ""
@@ -17,7 +18,7 @@ struct AddExpenseView: View {
     @State private var category = "Other"
     @State private var showAnimation = false
     
-    let categories = ["Food", "Transport", "Bills", "Other"] // Categorías predefinidas
+    let categories = ["Food", "Transport", "Bills", "Other"]
     let onSave: (String, Double, String) -> Void
     
     var body: some View {
@@ -25,17 +26,16 @@ struct AddExpenseView: View {
             Form {
                 Section("Details") {
                     TextField("Title", text: $title)
-                    TextField("Amount", text: $amount)
-                        .keyboardType(.decimalPad)
+                    TextField("Amount", text: $amount).keyboardType(.decimalPad)
                 }
                 
                 Section("Category") {
                     Picker("Select category", selection: $category) {
-                        ForEach(categories, id: \.self) { cat in
-                            Text(cat)
+                        ForEach(categories, id: \.self) { category in
+                            Text(category)
                         }
                     }
-                    .pickerStyle(.menu) // O .segmented / .wheel según preferencia
+                    .pickerStyle(.menu) // could be .segmented or .wheel depending the preference
                 }
             }
             .navigationTitle("New Expense")
@@ -54,7 +54,7 @@ struct AddExpenseView: View {
                         LottieView(name: "success")
                             .frame(width: 200, height: 200)
                     }
-                    .disabled(title.isEmpty || amount.isEmpty) // Evitar guardar campos vacíos
+                    .disabled(title.isEmpty || amount.isEmpty) //avoid saving an expense without title or amount
                 }
             }
         }

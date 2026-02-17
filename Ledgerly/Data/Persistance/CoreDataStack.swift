@@ -9,16 +9,16 @@ import CoreData
 
 final class CoreDataStack {
     
-    //Se crea instancia de CoreDataStack para usar en toda la app. Patron singleton
+    //the instance of the stack, singleton pattern
     static let shared = CoreDataStack()
     
-    //carga el modelo y crea db
+    //loads the model and the db
     let container: NSPersistentContainer
     
     private init() {
-        container = NSPersistentContainer(name: "LedgerlyModel")//se carga el archivo
+        container = NSPersistentContainer(name: "LedgerlyModel")//load the model, the name must match the .xcdatamodeld file
         
-        //carga la db, si falla se muestra error
+        //load the persistent stores 8db), if there's an error we crash the app because we can't continue without a database
         container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("CoreData failed: \(error)")
@@ -26,7 +26,7 @@ final class CoreDataStack {
         }
     }
     
-    //se expone el contexto
+    //we expose the context as a computed property for easy access
     var context: NSManagedObjectContext {
         container.viewContext
     }

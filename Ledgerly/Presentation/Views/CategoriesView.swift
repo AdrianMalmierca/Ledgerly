@@ -9,17 +9,19 @@ import SwiftUI
 
 struct CategoriesGridView: View {
     let categories: [String]
+    
+    //to modify from LedgerlyTabView
     @Binding var selectedCategory: String?
 
     var body: some View {
-        GeometryReader { geo in
+        GeometryReader { geo in //cause we need that the layout depends about the avaiable space
             let width = geo.size.width
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: [GridItem(.flexible())], spacing: 10) {
                     ForEach(categories, id: \.self) { category in
                         Button {
                             if selectedCategory == category {
-                                selectedCategory = nil
+                                selectedCategory = nil //deselect if already selected
                             } else {
                                 selectedCategory = category
                             }

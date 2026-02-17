@@ -12,14 +12,16 @@ struct LottieView: UIViewRepresentable {
     let name: String
 
     func makeUIView(context: Context) -> UIView {
+        //create a container view to hold the animation, with initial size zero
         let view = UIView(frame: .zero)
 
+        //create the Lottie animation view with the name
         let animationView = LottieAnimationView(name: name)
-        animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .playOnce
-        animationView.play()
+        animationView.contentMode = .scaleAspectFit //scale the animation to fit the container view
+        animationView.loopMode = .playOnce //is played only once
+        animationView.play() //start the animation
 
-        animationView.translatesAutoresizingMaskIntoConstraints = false
+        animationView.translatesAutoresizingMaskIntoConstraints = false //enable Auto Layout for the animation view
         view.addSubview(animationView)
         NSLayoutConstraint.activate([
             animationView.widthAnchor.constraint(equalTo: view.widthAnchor),

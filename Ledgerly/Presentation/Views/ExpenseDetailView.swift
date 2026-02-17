@@ -13,15 +13,9 @@ struct ExpenseDetailView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Text(expense.title)
-                .font(.largeTitle)
-            
-            Text("\(expense.amount, specifier: "%.2f") €")
-                .font(.title)
-            
-            Text(expense.category)
-                .foregroundColor(.secondary)
-            
+            Text(expense.title).font(.largeTitle)
+            Text("\(expense.amount, specifier: "%.2f") €").font(.title)
+            Text(expense.category).foregroundColor(.secondary)
             Text(expense.date.formatted())
         }
         .padding()
