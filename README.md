@@ -7,7 +7,7 @@ SwiftUI is used in Ledgerly for several reasons:
 - **Live Previews:** SwiftUI allows real-time previews, speeding up development and iteration.
 - **Reactive and State-Driven:** The UI automatically updates when data changes, integrating seamlessly with Combine.
 - **Cross-Platform Potential:** SwiftUI can be used across iOS, macOS, iPadOS, and watchOS with minimal changes.
-- **uture-Proof:** Apple is heavily investing in SwiftUI as the standard for modern UI development.
+- **Future-Proof:** Apple is heavily investing in SwiftUI as the standard for modern UI development.
 
 ## Features
 ### Expense Management
