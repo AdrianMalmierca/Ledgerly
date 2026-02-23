@@ -9,6 +9,12 @@ import SwiftUI
 
 @main
 struct LedgerlyApp: App {
+    
+    init() {
+        NotificationService.shared.requestAuthorization()
+        NotificationService.shared.scheduleDailyReminder()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

@@ -34,11 +34,9 @@ struct AddExpenseView: View {
                         ForEach(categories, id: \.self) { category in
                             Text(category)
                         }
-                    }
-                    .pickerStyle(.menu) // could be .segmented or .wheel depending the preference
+                    }.pickerStyle(.menu) // could be .segmented or .wheel depending the preference
                 }
-            }
-            .navigationTitle("New Expense")
+            }.navigationTitle("New Expense")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
@@ -49,8 +47,7 @@ struct AddExpenseView: View {
                                 dismiss()
                             }
                         }
-                    }
-                    .sheet(isPresented: $showAnimation) {
+                    }.sheet(isPresented: $showAnimation) {
                         LottieView(name: "success")
                             .frame(width: 200, height: 200)
                     }

@@ -15,7 +15,7 @@ struct LedgerlyTabView: View {
 
     var body: some View {
         TabView {
-            // Pestaña 1: Lista de gastos
+            //Expense list
             NavigationStack {
                 VStack {
                     TextField("Buscar gasto...", text: $viewModel.searchText)
@@ -45,7 +45,7 @@ struct LedgerlyTabView: View {
                             }
                         }
                     }
-                    .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 50) } // evita solapamiento con TabView
+                    .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 50) } //avoid that the last item of the list is hidden behind the tab bar
                 }
                 .navigationTitle("Ledgerly")
                 .toolbar {
@@ -75,7 +75,7 @@ struct LedgerlyTabView: View {
                 Label("Gastos", systemImage: "list.bullet")
             }
 
-            // Pestaña 2: Gráfico de gastos
+            //Expense chart
             NavigationStack {
                 ExpensesChartView(expenses: viewModel.expenses)
                     .navigationTitle("Gráfico")

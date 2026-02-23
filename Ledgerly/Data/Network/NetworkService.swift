@@ -24,12 +24,12 @@ final class NetworkService: NetworkServiceProtocol {
         //we need the information so we ignore the response
         let (data, _) = try await URLSession.shared.data(from: url) //petición get
         
-        //trasnforma de JSON a objeto swift
+        //transform from JSON to an array of PostDTO
         let decoded = try JSONDecoder().decode([PostDTO].self, from: data)
         
-        //solo se cogen los primeros 20 posts para crear gastos, ya que el endpoint devuelve 100 posts
+        //only take the first 20 posts to create expenses, since the API returns 100 posts
         return decoded.prefix(20).map {
-            //se crea un gasto a partir del título de cada post, con cantidad aleatoria y fecha actual
+            //create an Expense for each PostDTO, using the title from the post and random values for the other properties
             Expense(
                 id: UUID(),
                 title: $0.title,
@@ -47,12 +47,12 @@ final class NetworkService: NetworkServiceProtocol {
         
         request.httpBody = try JSONEncoder().encode(expense)
         
-        //no interesa la respuesta, simplemente que lance error si falla
+        //we're not interested in the response, we just want to send the data, so we ignore it
         _ = try await URLSession.shared.data(for: request)
     }
 }
 
 private struct PostDTO: Decodable {
-    //solo coge el title de la petición
+    //only the title is relevant for our example, but we could include other properties if needed
     let title: String
 }

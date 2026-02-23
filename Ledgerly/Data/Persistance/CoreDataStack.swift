@@ -18,7 +18,7 @@ final class CoreDataStack {
     private init() {
         container = NSPersistentContainer(name: "LedgerlyModel")//load the model, the name must match the .xcdatamodeld file
         
-        //load the persistent stores 8db), if there's an error we crash the app because we can't continue without a database
+        //load the persistent stores(db), if there's an error we crash the app because we can't continue without a database
         container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("CoreData failed: \(error)")
