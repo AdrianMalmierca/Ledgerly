@@ -10,27 +10,27 @@ SwiftUI is used in Ledgerly for several reasons:
 - **uture-Proof:** Apple is heavily investing in SwiftUI as the standard for modern UI development.
 
 ## Features
-### Expense Management**
+### Expense Management
 - Add, edit, and delete expenses.
 - Assign categories to expenses (Food, Transport, Bills, Other).
 - Search and filter expenses by title or category.
 
-### Data Persistence**
--Local storage using **Core Data**.
+### Data Persistence
+- Local storage using **Core Data**.
 - Repository pattern ensures clean separation of data layer and business logic.
 
-### Backend Integration**
+### Backend Integration
 - Fetches remote expenses from a public API for demonstration purposes.
 - Synchronizes local expenses with remote data asynchronously.
 
-### Visualizations**
+### Visualizations
 - Displays expenses in a **bar chart** grouped by category using SwiftUI Charts.
 - Animated feedback on saving new expenses with **Lottie**.
 
-### Notifications**
+### Notifications
 - Daily reminders to record expenses using **UserNotifications**.
 
-### Architecture & Patterns**
+### Architecture & Patterns
 - MVVM (Model-View-ViewModel) architecture.
 - Repository pattern for data management.
 - Reactive filtering using **Combine**.
@@ -88,6 +88,8 @@ Ledgerly uses MVVM combined with Clean Architecture to improve maintainability a
 1. Clone the repository:
 ```bash
    git clone https://github.com/AdrianMalmierca/Ledgerly
+```
+```bash
    cd ledgerly
 ```
 
@@ -107,7 +109,7 @@ open Ledgerly.xcodeproj
 ## Dependencies
 - [**Lottie**](https://github.com/airbnb/lottie-ios)
     - For animated success feedback.
-- SwiftUI Charts 
+- [**SwiftUI Charts**](https://github.com/willdale/SwiftUICharts)
     - Built-in **Swift Charts** framework for visualizations.
 
 ## Future Improvements
