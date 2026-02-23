@@ -67,6 +67,13 @@ Ledgerly/
 │     └─ ExpensesChartView.swift
 ```
 
+## Platforms & Orientation
+Supports iPhone and iPad.
+
+Compatible with iOS 17 and later (including iPhone SE).
+
+Fully responsive in portrait and landscape orientations.
+
 ## Why MVVM with Clean Architecture
 Ledgerly uses MVVM combined with Clean Architecture to improve maintainability and testability:
 1. Separation of Concerns:
@@ -111,6 +118,14 @@ open Ledgerly.xcodeproj
     - For animated success feedback.
 - [**SwiftUI Charts**](https://github.com/willdale/SwiftUICharts)
     - Built-in **Swift Charts** framework for visualizations.
+
+## Problems Solved by Ledgerly
+1. **Tracking Daily Expenses:** Helps users keep a clear record of all expenses, avoiding forgotten purchases or untracked spending.
+2. **Budget Awareness:** By categorizing expenses and providing visual charts, users can easily see where their money is going and identify overspending.
+3. **Manual Expense Management Complexity:** Eliminates the need for paper logs or spreadsheets by providing an intuitive digital interface.
+4. **Data Synchronization:** Even with a local-first approach, Ledgerly can sync with a backend (demo API), reducing the risk of losing expense data.
+5. **Forgetting to Record Expenses:** Daily reminders ensure that users log their expenses regularly, helping them maintain accurate records.
+6. **Quick Analysis of Spending Patterns:** Expense charts allow users to immediately visualize spending by category, enabling faster financial decisions.
 
 ## Future Improvements
 - **Real Backend Integration:** Replace the placeholder API with a proper backend to persist user expenses across devices.
